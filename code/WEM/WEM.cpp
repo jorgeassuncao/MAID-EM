@@ -114,7 +114,7 @@ String getPage(){                                                               
   page +=           "<h2>";
   page +=             proj_ver;
   page +=           "</h2>";
-  page +=           "<p>This project uses a MQTT topic to store the accumulated kWh value, so that when there is a reboot, reset or power off the value won't be lost. The subscribed topic to get the accumulated kWh value is <small><em>";
+  page +=           "<p>This project uses a MQTT topic to store the accumulated kWh value, so that when there is a reboot, reset or power off the value won't be lost. The subscribed topic to get the accumulated kWh value is <small><em style='color: #ababab;'>";
   page +=             mqtt_topic_sub_1;
   page +=           "</em></small></p>";
   page +=         "</div>";
