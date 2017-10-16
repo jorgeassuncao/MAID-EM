@@ -1,9 +1,9 @@
-# ESP8266 Energy Monitor
+# WEM - Wi-Fi Energy Monitor
 
-The **ESP Energy Monitor** is a wifi energy monitor based on a ESP8266 board that uses XTM18S (or compatible) single phase energy meter to get energy readings. The energy monitor is enabled with MQTT and sends readings for power (W), consumption (kWh) and accumulated consumption (kWh), but with a couple tricks you can also get apparent power (kVA) and current (A).
+The **Wi-Fi Energy Monitor** is an energy monitor based on a ESP8266 board that uses XTM18S (or compatible) single phase energy meter to get energy readings. The energy monitor is MQTT enabled and sends readings for power (W), consumption (kWh) and accumulated consumption (kWh), but with a couple tricks you can also get apparent power (kVA) and current (A).
 
 ### Version
-Current version is: _ESP Energy Monitor v0.6.6 (14/10/2017)_
+Current version is: _WEM - Wi-Fi Energy Monitor v0.6.6 (14/10/2017)_
 
 ### Features
 + Works on NodeMCU boards. [View compatible boards](https://github.com/jorgeassuncao/ESP8266-Energy-Monitor/wiki/Parts-List)
@@ -36,7 +36,7 @@ Current version is: _ESP Energy Monitor v0.6.6 (14/10/2017)_
 + Remote debug via Telnet server with configurable debug level (verbose, debug, info, warning and errors), profiler and filter
 + Information available on the telnet interface
   + Host name
-  + IP address 
+  + IP address
   + MAC address
   + Free Heap RAM
   + Current kWh
