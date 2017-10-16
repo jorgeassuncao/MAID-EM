@@ -31,7 +31,7 @@
 
 //************* PROJECT AND VERSION **********************************************************************
 //********************************************************************************************************
-const char* proj_ver = "ESP Energy Monitor v0.6.6 (14/10/2017)";                // Project name and version
+const char* proj_ver = "WEM - Wi-Fi Energy Monitor v0.6.6 (14/10/2017)";         // Project name and version
 
 //************* CONFIG DEBUG *****************************************************************************
 //********************************************************************************************************
@@ -196,12 +196,12 @@ void setup_wifi() {
   Debug.showDebugLevel(false);                                                  // Enable/disable (true/false) debug levels
   Debug.showColors(true);                                                       // Enable/disable (true/false) colors
 
-  Serial.println("- - - - - - - - - - - - - - - - - - -");                      // Block separator to serial interface
-  Debug.println("- - - - - - - - - - - - - - - - - - -");                       // Block separator to telnet debug interface
+  Serial.println("- - - - - - - - - - - - - - - - - - - - - - -");                      // Block separator to serial interface
+  Debug.println("- - - - - - - - - - - - - - - - - - - - - - -");                       // Block separator to telnet debug interface
   Serial.println(proj_ver);                                                     // Send project name and version to serial interface
   Debug.println(proj_ver);                                                      // Send project name and version to telnet debug interface
-  Serial.println("- - - - - - - - - - - - - - - - - - -");                      // Block separator to serial interface
-  Debug.println("- - - - - - - - - - - - - - - - - - -");                       // Block separator to telnet debug interface
+  Serial.println("- - - - - - - - - - - - - - - - - - - - - - -");                      // Block separator to serial interface
+  Debug.println("- - - - - - - - - - - - - - - - - - - - - - -");                       // Block separator to telnet debug interface
   Serial.println();                                                             // Send space to serial interface
   Debug.println();                                                              // Send space to telnet debug interface
 
