@@ -36,3 +36,5 @@
 .gcc-flags.json
 
 # Local files
+*.yml
+*.ini
