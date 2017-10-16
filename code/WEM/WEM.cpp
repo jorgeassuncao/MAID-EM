@@ -27,7 +27,7 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 #include "RemoteDebug.h"
-#include "config/userdatalocal.h"
+#include "../config/userdatalocal.h"
 
 //************* PROJECT AND VERSION **********************************************************************
 //********************************************************************************************************
@@ -286,6 +286,22 @@ void reconnect() {
   }
 }
 
+//************* ON PULSE *********************************************************************************
+//********************************************************************************************************
+void onPulse()
+{
+    unsigned long newBlink = micros();
+    unsigned long interval = newBlink-lastBlink;
+
+    if (interval<10000L) {                                                      // Sometimes we get interrupt on RISING
+            return;
+    }
+
+    kwh += 1.0 / (double)PULSE_FACTOR;                                          // Every time there is a pulse, the energy consumption is 1 [pulse] / PULSE_FACTOR [pulses/kWh]
+    lastBlink = newBlink;
+    pulseCount++;                                                               // Accumulate the energy (it will be initialized again once MQTT message is sent)
+}
+
 //************* SETUP ************************************************************************************
 //********************************************************************************************************
 void setup()
@@ -393,22 +409,6 @@ void loop()
 
   yield();                                                                      // Yielding
 
-}
-
-//************* ON PULSE *********************************************************************************
-//********************************************************************************************************
-void onPulse()
-{
-    unsigned long newBlink = micros();
-    unsigned long interval = newBlink-lastBlink;
-
-    if (interval<10000L) {                                                      // Sometimes we get interrupt on RISING
-            return;
-    }
-
-    kwh += 1.0 / (double)PULSE_FACTOR;                                          // Every time there is a pulse, the energy consumption is 1 [pulse] / PULSE_FACTOR [pulses/kWh]
-    lastBlink = newBlink;
-    pulseCount++;                                                               // Accumulate the energy (it will be initialized again once MQTT message is sent)
 }
 
 // END
