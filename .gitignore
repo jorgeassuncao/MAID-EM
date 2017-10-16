@@ -36,6 +36,6 @@
 .gcc-flags.json
 
 # Local files
-*.yml
-*.ini
 .gitignore
+.travis.yml
+platformio.ini
