@@ -13,8 +13,18 @@ Current version is: _ESP Energy Monitor v0.6.6 (14/10/2017)_
   + Current kWh
   + Current Watt
   + Accum kWh (pulses)
-+ Retains the last accumulated consumption value even if the board is rebooted, reset or powered off
+  + IP address
+  + MAC address
++ Retains the last accumulated consumption value even if the device is rebooted, reset or powered off
++ ESP8266 Webserver to create a web interface
++ Web interface uses Bootstrap framework
++ Information available on the web interface:
+  + Current kWh
+  + Current Watt
+  + Accum kWh (pulses)
++ A button on the web interface allows to reset the device remotely
 + Debug info via serial interface
++ Information available on the serial interface:
   + IP address
   + MAC address
   + Current kWh
@@ -22,18 +32,18 @@ Current version is: _ESP Energy Monitor v0.6.6 (14/10/2017)_
   + Accum kWh (pulses)
 + Telnet server
   + Set CPU speed for ESP8266 (80MHz/160MHz)
-  + Remote reset of the board
+  + Remote reset of the device
 + Remote debug via Telnet server with configurable debug level (verbose, debug, info, warning and errors), profiler and filter
++ Information available on the telnet interface
   + Host name
-  + IP address
+  + IP address 
   + MAC address
   + Free Heap RAM
   + Current kWh
   + Current Watt
   + Accum kWh (pulses)
-+ Visual confirmation of operation using the board internal blue LED
++ Visual confirmation of operation using the device internal blue LED
 
 
 ### To-do
-+ ESP8266 Webserver to display information about the board as the MQTT topics, and serial port, on a web browser
 + Use a non-invasive current sensor to get current (Amps) value and make reliable calculation for Apparent Power (kVA)
