@@ -42,15 +42,15 @@ const char* mqtt_password = "mqtt_password";
 //********************************************************************************************************
 
 // MQTT topic to publish "watt" values
-const char* mqtt_topic_watt = "home/indoor/sensor/ESP_Energy_Meter_01/watt";
+const char* mqtt_topic_watt = "home/indoor/sensor/wem_01/watt";
 // MQTT topic to publish "kwh" values
-const char* mqtt_topic_kwh = "home/indoor/sensor/ESP_Energy_Meter_01/kwh";
+const char* mqtt_topic_kwh = "home/indoor/sensor/wem_01/kwh";
 // MQTT topic to publish "pulse/total kwh" values
-const char* mqtt_topic_pulse = "home/indoor/sensor/ESP_Energy_Meter_01/pulse";
+const char* mqtt_topic_pulse = "home/indoor/sensor/wem_01/pulse";
 // MQTT topic to publish IP address
-const char* mqtt_topic_ip = "home/indoor/sensor/ESP_Energy_Meter_01/ip";
+const char* mqtt_topic_ip = "home/indoor/sensor/wem_01/ip";
 // MQTT topic to publish MAC address
-const char* mqtt_topic_mac = "home/indoor/sensor/ESP_Energy_Meter_01/mac";
+const char* mqtt_topic_mac = "home/indoor/sensor/wem_01/mac";
 // MQTT topic to subscribe and get values when node starts
 const char* mqtt_topic_sub_1 = mqtt_topic_pulse;
 
