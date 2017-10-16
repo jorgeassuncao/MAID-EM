@@ -38,4 +38,5 @@
 .gcc-flags.json
 
 # Local files
-config/userdatalocal.h 
+config/userdata_devel.h
+config/userdata_prod.h
