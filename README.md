@@ -8,7 +8,7 @@ The MAID acronym stands for (M)qtt en(A)bled w(I)fi no(D)e.
 Current version is: _MAID - Energy Monitor v0.6.6 (15/10/2017)_
 
 ### Features
-+ Works on ESP8266-based boards. [View compatible boards](https://github.com/jorgeassuncao/MAID-EM/wiki/Parts-List)
++ Works on ESP8266-based boards. [View compatible boards](https://github.com/jorgeassuncao/MAID-EM/#)
 + Separate file with all the variables that need to be configured, so you do not have to mess with all the code
 + MQTT enabled with the PubSubClient library
 + Configurable MQTT topics to fit your needs
