@@ -2,7 +2,7 @@
 
 The **MAID - Energy Monitor** is an energy monitor based on a ESP8266 board that uses the XTM18S (or compatible) single phase energy meter to get energy readings. The energy monitor is MQTT enabled and sends readings for power (W), consumption (kWh) and accumulated consumption (kWh), and with a couple tricks you can also get apparent power (kVA) and current (A).
 
-The MAID acronym stands for (M)qtt en(A)bled w(I)fi no(D)e.
+The **MAID** acronym stands for **M** qtt en **A** bled w **I** fi no **D** e.
 
 ### Version
 Current version is: _MAID - Energy Monitor v0.6.6 (15/10/2017)_
