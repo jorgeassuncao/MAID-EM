@@ -1,35 +1,38 @@
-# WEM - Wi-Fi Energy Monitor
+# MAID - Energy Monitor
 
-The **Wi-Fi Energy Monitor** is an energy monitor based on a ESP8266 board that uses XTM18S (or compatible) single phase energy meter to get energy readings. The energy monitor is MQTT enabled and sends readings for power (W), consumption (kWh) and accumulated consumption (kWh), but with a couple tricks you can also get apparent power (kVA) and current (A).
+The **MAID - Energy Monitor** is an energy monitor based on a ESP8266 board that uses the XTM18S (or compatible) single phase energy meter to get energy readings. The energy monitor is MQTT enabled and sends readings for power (W), consumption (kWh) and accumulated consumption (kWh), and with a couple tricks you can also get apparent power (kVA) and current (A).
+
+The MAID acronym stands for (M)qtt en(A)bled w(I)fi no(D)e.
 
 ### Version
-Current version is: _WEM - Wi-Fi Energy Monitor v0.6.6 (15/10/2017)_
+Current version is: _MAID - Energy Monitor v0.6.6 (15/10/2017)_
 
 ### Features
-+ Works on NodeMCU boards. [View compatible boards](https://github.com/jorgeassuncao/ESP8266-Energy-Monitor/wiki/Parts-List)
-+ MQTT enabled
-+ Configurable topics to publish
++ Works on ESP8266-based boards. [View compatible boards](https://github.com/jorgeassuncao/MAID-EM/wiki/Parts-List)
++ Separate file with all the variables that need to be configured, so you do not have to mess with all the code
++ MQTT enabled with the PubSubClient library
++ Configurable MQTT topics to fit your needs
 + Publishes various information over MQTT:
-  + Current kWh
-  + Current Watt
-  + Accum kWh (pulses)
+  + Current Consumption (kWh)
+  + Current Power (Watt)
+  + Accumulated Consumption (kWh)
   + IP address
   + MAC address
 + Retains the last accumulated consumption value even if the device is rebooted, reset or powered off
 + ESP8266 Webserver to create a web interface
 + Web interface uses Bootstrap framework
 + Information available on the web interface:
-  + Current kWh
-  + Current Watt
-  + Accum kWh (pulses)
+  + Current Consumption (kWh)
+  + Current Power (Watt)
+  + Accumulated Consumption (kWh)
 + A button on the web interface allows to reset the device remotely
 + Debug info via serial interface
 + Information available on the serial interface:
   + IP address
   + MAC address
-  + Current kWh
-  + Current Watt
-  + Accum kWh (pulses)
+  + Current Consumption (kWh)
+  + Current Power (Watt)
+  + Accumulated Consumption (kWh)
 + Telnet server
   + Set CPU speed for ESP8266 (80MHz/160MHz)
   + Remote reset of the device
@@ -39,9 +42,9 @@ Current version is: _WEM - Wi-Fi Energy Monitor v0.6.6 (15/10/2017)_
   + IP address
   + MAC address
   + Free Heap RAM
-  + Current kWh
-  + Current Watt
-  + Accum kWh (pulses)
+  + Current Consumption (kWh)
+  + Current Power (Watt)
+  + Accumulated Consumption (kWh)
 + Visual confirmation of operation using the device internal blue LED
 
 
