@@ -1,5 +1,5 @@
 /**
- * File contents of "userdata.h"
+ * File contents of "userdata.h" for MAID - Energy Monitor
  *
  * This file is used to change your personal user data to meet your needs
  * For more information visit https://github.com/jorgeassuncao/ESP8266-Energy-Monitor
