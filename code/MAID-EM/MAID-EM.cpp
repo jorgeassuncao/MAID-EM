@@ -63,8 +63,8 @@ volatile unsigned long lastBlink = 0;                                           
 double kwh;                                                                     // Variable -
 unsigned long lastSend;                                                         // Variable -
 
-WiFiClient espClient;                                                           // Variable -
-PubSubClient client(espClient);                                                 // Variable -
+WiFiClient espClient;                                                           // Initiate wifi
+PubSubClient client(espClient);                                                 // Initiate MQTT
 
 long lastMsg = 0;                                                               // Variable -
 char msg[50];                                                                   // Variable -
@@ -317,7 +317,7 @@ void setup()
     Serial.println("MDNS responder started");                                   //
   }                                                                             //
 
-  server.on("/", handleRoot);                                                   // Serve root page when asked
+  server.on("/", handleRoot);                                                   // Serve root page
 
   server.onNotFound(handleNotFound);                                            // Serve page not found
 
