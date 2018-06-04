@@ -6,7 +6,7 @@
  *    | |__' |   _| |_\/_| |_  _| |  \ \_  _/ /   \ \_
  *    `.____.'  |_____||_____||____| |___||____| |____|
  *
- * ESP Energy Monitor v0.6.6 by Jorge Assunção
+ * ESP Energy Monitor by Jorge Assunção
  *
  * Based on a project by timseebeck @ https://community.home-assistant.io/t/power-monitoring-with-an-xtm18s-and-mqtt/16316
  * Remote Debug over Telnet by JoaoLopesF @ https://github.com/JoaoLopesF/ESP8266-RemoteDebug-Telnet
@@ -27,7 +27,7 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 #include "RemoteDebug.h"
-#include "../config/userdata_devel.h"
+#include "../config/userdata_prod.h"
 
 //************* PROJECT AND VERSION **********************************************************************
 //********************************************************************************************************
@@ -98,7 +98,7 @@ String getPage(){                                                               
   page +=     "<meta http-equiv='refresh' content='15'/>";
   page +=     "<link rel='shortcut icon' href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAAASAAAAEgARslrPgAAAyRJREFUaN7tmM1vDWEUxn/6QUhK4itxW6ErCQsSafEHSDStWAmxKhJKRCokysbdoHtCb22JpBo2SiyEv6FpoldYqK9ElbaKCnItZiamz7y9fWfuO23UfZJZnDnnPOc5M++8HwNllFHGf4Hqf7lmNdAHdM6i+CxwH6hyQZYDCv6VnSXxQb1rpZIdCJEF15EUxbcZ6u1LSrYS+Chkg/79tJAB3krNYWB5ErIuIZoANqYoPkAD8E1qX41LUgf8EJJ2Q1yjA8EmjtNSexKojUPaKQTPiM4Iu4HflPZhZ32OFrlfBeRFwyVb0krgjSS3SkwtME5ps1M2lD+GN/7DOCgahoAKG+IdkjgKLJaYG0Rf8foY4uuJDtGcxCyRh1TAcsiel6Sb4l8L/JKYtgRv4Lhw/CQ6zm9LTIeSmF7JVrGfir0Hb5gF6Ae6DU32+k9wHLgHbJCYHDAQsqt87jCezKDNiAHpukH8D8V/0iB+RGIKwCffF0a7xPSJf5v4+20a0OK6cOnsoGtDr0F8cPVI7CbxD4p/tfiHbRrQj2uh+PXDqpnBH77GJLZG/OPiXyT+SRVrNS05RME1oamBCbGXiv1ebB3Xj4vUeyT2OrHfib1M7C82DajAerFfir1T7A7gs4F3BG+LUCz3xQy1VZuxgbzYm8V+IPZh4cn7OXf4O432AFvwVvgAlX5uMW6trdqMOMfUD+eW+OvwFp1wzDEbYsEJ4bBZyM7aEG8nOnPoVqKb6OxQb0Puw7SV6JIY01aiwYa8Angtia0Sk/Ebc7WZGwXWiP+QaHhFjFnzMtEFRrfTLbjbTjfL/WrguWi4GIfYdKA5ZYgr9kp1EZsOJo4zRIdohpi4LiRf8ZZ+W9g2oGgEvkvulbjiAVYQPdTngVUpNlBL9FD/gYSHeoD9BiFHU2zA9Ftlb1LxAcJDKRsjL+kQyoZyYv+NMKESuAtciJmXtAHwFixnvxYh2Y/WUhqwrrnAVYfTNJB6LZfngWam/o4xNVTAW+Wb0mimVOj2o9g15Kqo6bU6PzU5xhTNs32kdI5yA/MJc/IRu0STZRNDwK65FltGGfMFfwB1P4cc2cai3gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0xMC0xM1QyMDo1OTo1MiswMDowMGf6eRAAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMTAtMTNUMjA6NTk6NTIrMDA6MDAWp8GsAAAAKHRFWHRzdmc6YmFzZS11cmkAZmlsZTovLy90bXAvbWFnaWNrLWZDN1pLU3MxVs1E8gAAAABJRU5ErkJggg=='>";
   page +=     "<title>";
-  page +=       host_name;
+  page +=       DEVICE_HOSTNAME;
   page +=     "</title>";
   page +=     "<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>";
   page +=     "<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'>";
@@ -189,7 +189,7 @@ void setup_wifi() {
   delay(20);
 
 /** TELNET **/
-  Debug.begin("ESP_Energy_Monitor_01_t");                                       // Initiaze the telnet server
+  Debug.begin(DEVICE_HOSTNAME);                                                       // Initiaze the telnet server
   Debug.setResetCmdEnabled(true);                                               // Enable/disable (true/false) the reset command (true/false)
   Debug.showTime(false);                                                        // Enable/disable (true/false) timestamps
   Debug.showProfiler(false);                                                    // Enable/disable (true/false) Profiler - time between messages of Debug
@@ -268,9 +268,12 @@ void callback(char* topic, byte* payload, unsigned int length) {
 void reconnect() {
 
   while (!client.connected()) {                                                 // Loop until reconnected
+    delay(5000);                                                                // Wait 5 seconds before retrying
     Serial.print("Attempting connection to MQTT server... ");                   // Send text to serial interface
     Debug.printf("Attempting connection to MQTT server... ");                   // Send text to telnet debug interface
-    if (client.connect(host_name, mqtt_username, mqtt_password)) {              // Connect to MQTT brocker
+    if (client.connect(
+			DEVICE_HOSTNAME, MQTT_USERNAME, MQTT_PASSWORD,
+			MQTT_WILL_TOPIC, MQTT_WILL_QOS, MQTT_WILL_RETAIN, MQTT_WILL_MESSAGE)) {		// Connect to MQTT broker
       Serial.println(" connected!");                                            // Send text to serial interface
       Debug.println(" connected!");                                             // Send text to telnet debug interface
       client.subscribe(mqtt_topic_sub_1);                                       // MQTT topic to subscribe
@@ -279,9 +282,9 @@ void reconnect() {
       Debug.printf("failed, rc=");                                              // Send text to telnet debug interface
       Serial.print(client.state());                                             // Send failure state to serial interface
       //Debug.printf(client.state());                                           // Send failure state to telnet debug interface
-      Serial.println(" try again in 5 seconds");                                // Send text to serial interface
-      Debug.println(" try again in 5 seconds!");                                // Send text to telnet debug interface
-      delay(5000);                                                              // Wait 5 seconds before retrying
+      Serial.println(" try again in 10 seconds");                               // Send text to serial interface
+      Debug.println(" try again in 10 seconds!");                               // Send text to telnet debug interface
+      delay(10000);                                                             // Wait 5 seconds before retrying
     }
   }
 }
@@ -327,7 +330,7 @@ void setup()
 
   Serial.begin(115200);                                                         // Start serial interface
   setup_wifi();                                                                 // Start wifi
-  client.setServer(mqtt_server, mqtt_port);                                     //
+  client.setServer(MQTT_SERVER, MQTT_PORT);                                     //
   client.setCallback(callback);                                                 //
 
   // Use the internal pullup to be able to hook up this sketch directly to an energy meter with S0 output
@@ -335,7 +338,7 @@ void setup()
   pinMode(DIGITAL_INPUT_SENSOR,INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(DIGITAL_INPUT_SENSOR), onPulse, RISING);
 
-  Debug.begin(host_name);                                                       // Start Telnet server
+  Debug.begin(DEVICE_HOSTNAME);                                                 // Start Telnet server
 
   kwh = 0;
   lastSend=millis();
