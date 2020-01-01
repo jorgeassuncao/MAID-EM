@@ -1,0 +1,39 @@
+{
+    "description": "Remote debug over telnet for Arduino ESP8266 or ESP32", 
+    "repository": {
+        "url": "https://github.com/JoaoLopesF/RemoteDebug", 
+        "type": "git"
+    }, 
+    "platforms": [
+        "espressif8266"
+    ], 
+    "export": {
+        "exclude": [
+            "extras", 
+            "docs", 
+            "tests", 
+            "test", 
+            "*.doxyfile", 
+            "*.pdf"
+        ], 
+        "include": null
+    }, 
+    "authors": [
+        {
+            "maintainer": true, 
+            "name": "Joao Lopes", 
+            "url": null, 
+            "email": null
+        }
+    ], 
+    "keywords": [
+        "communication"
+    ], 
+    "id": 1266, 
+    "name": "RemoteDebug", 
+    "frameworks": [
+        "arduino"
+    ], 
+    "version": "1.1.0", 
+    "homepage": null
+}
